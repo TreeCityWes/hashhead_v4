@@ -94,8 +94,8 @@ export default function Hero() {
         </h1>
 
         <h2 className="text-3xl sm:text-4xl md:text-5xl font-semibold tracking-tight mb-4 font-[var(--font-display)]">
-          Infrastructure for the{" "}
-          <span className="glitch-text">X1 ecosystem</span>
+          Infrastructure for the
+          <span className="glitch-text">&nbsp;X1 ecosystem</span>
         </h2>
 
         <div className="h-8 md:h-10 mb-5 flex items-center justify-center">
