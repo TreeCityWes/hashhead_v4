@@ -19,8 +19,8 @@ export const metadata: Metadata = {
   metadataBase: new URL("https://hashhead.io"),
   title: "HashHead — Building the X1 Ecosystem",
   description:
-    "The home of TreeCityWes — builder, validator, and community leader in the X1 blockchain ecosystem. Creator of X1 Ninja, X1 World, X1 Node, and more.",
-  keywords: ["HashHead", "TreeCityWes", "X1", "blockchain", "validator", "X1 Ninja", "X1 World", "X1 Node"],
+    "The home of TreeCityWes — builder, validator, and community leader in the X1 blockchain ecosystem. Creator of X1 Ninja, X1 Tools, and Forest.",
+  keywords: ["HashHead", "TreeCityWes", "X1", "blockchain", "validator", "X1 Ninja", "X1 Tools", "Forest", "XDEX"],
   openGraph: {
     title: "HashHead — Building the X1 Ecosystem",
     description: "The home of TreeCityWes — builder, validator, and community leader in the X1 blockchain ecosystem.",

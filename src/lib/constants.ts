@@ -18,22 +18,22 @@ export const X1_PROJECTS = [
     name: "X1 Ninja",
     url: "https://x1.ninja",
     description:
-      "Validator tools, staking dashboard, and network analytics for X1 blockchain.",
-    tag: "VALIDATOR_TOOLS",
+      "Screener for XDEX — real-time token data and network analytics for X1.",
+    tag: "SCREENER",
   },
   {
-    name: "X1 World",
-    url: "https://x1.world",
+    name: "X1 Tools",
+    url: "https://tools.x1.ninja",
     description:
-      "Community hub and explorer for the X1 blockchain ecosystem.",
-    tag: "COMMUNITY",
+      "Token launching, NFT minting, snapshots, and portfolio view — CoinTool for X1.",
+    tag: "TOOLS",
   },
   {
-    name: "X1 Node",
-    url: "https://x1node.com",
+    name: "Forest",
+    url: "https://forest.x1.ninja",
     description:
-      "Guides, tools, and resources for running your own X1 validator node.",
-    tag: "NODE_TOOLS",
+      "$FOREST token — the open claw agent overseeing the X1 Ninja ecosystem.",
+    tag: "AGENT",
   },
   {
     name: "ClaimXEN",
@@ -48,9 +48,9 @@ export const CURATED_LINKS = {
   x1: {
     title: "X1 Ecosystem",
     links: [
-      { name: "X1 Ninja", url: "https://x1.ninja", description: "Validator tools & staking" },
-      { name: "X1 World", url: "https://x1.world", description: "Community hub" },
-      { name: "X1 Node", url: "https://x1node.com", description: "Node setup guides" },
+      { name: "X1 Ninja", url: "https://x1.ninja", description: "XDEX screener & analytics" },
+      { name: "X1 Tools", url: "https://tools.x1.ninja", description: "Token launch, NFT mint, portfolio" },
+      { name: "Forest", url: "https://forest.x1.ninja", description: "$FOREST agent & staking" },
       { name: "ClaimXEN", url: "https://claimxen.com", description: "XEN minting & claims" },
     ],
   },
@@ -75,8 +75,8 @@ export const CURATED_LINKS = {
 
 export const NAV_LINKS = [
   { name: "X1 NINJA", url: "https://x1.ninja" },
-  { name: "X1 WORLD", url: "https://x1.world" },
-  { name: "X1 NODE", url: "https://x1node.com" },
+  { name: "X1 TOOLS", url: "https://tools.x1.ninja" },
+  { name: "FOREST", url: "https://forest.x1.ninja" },
   { name: "GITHUB", url: "https://github.com/TreeCityWes" },
   { name: "TWITTER", url: "https://x.com/treecitywes" },
   { name: "TELEGRAM", url: "https://t.me/TreeRootCity" },
@@ -94,8 +94,8 @@ export const HASH_INPUTS = [
   "hashhead.io",
   "treecitywes",
   "x1.ninja",
-  "x1.world",
-  "x1node.com",
+  "tools.x1.ninja",
+  "forest.x1.ninja",
   "claimxen.com",
 ];
 

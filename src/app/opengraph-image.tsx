@@ -87,9 +87,9 @@ export default function OGImage() {
           >
             <span>x1.ninja</span>
             <span style={{ color: "#555" }}>|</span>
-            <span>x1.world</span>
+            <span>tools.x1.ninja</span>
             <span style={{ color: "#555" }}>|</span>
-            <span>x1node.com</span>
+            <span>forest.x1.ninja</span>
           </div>
         </div>
 

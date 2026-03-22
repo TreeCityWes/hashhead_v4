@@ -42,7 +42,7 @@ export default function About() {
 
           <div className="space-y-2 mb-7 text-sm text-dim">
             <p><span className="text-green">&gt;</span> Builder, validator operator, and community leader in the X1 blockchain ecosystem.</p>
-            <p><span className="text-green">&gt;</span> Creator of X1 Ninja, X1 World, X1 Node, and the HashHead community.</p>
+            <p><span className="text-green">&gt;</span> Creator of X1 Ninja, X1 Tools, Forest, and the HashHead community.</p>
             <p><span className="text-green">&gt;</span> Focused on building open-source tools that make blockchain accessible for everyone.</p>
           </div>
 
