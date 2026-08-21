@@ -21,9 +21,9 @@ export default function XenSearch() {
     <section className="relative py-24 px-6">
       <div className="max-w-3xl mx-auto">
         <SectionHeader
-          number="05"
+          number="06"
           title="XENBLOCKS_EXPLORER"
-          subtitle="legacy tool — search the XenBlocks leaderboard"
+          subtitle="search the XenBlocks leaderboard while TreeMiner is hashing"
         />
 
         <motion.div

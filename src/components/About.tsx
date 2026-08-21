@@ -15,11 +15,7 @@ export default function About() {
   return (
     <section className="relative py-24 px-6">
       <div className="max-w-4xl mx-auto">
-        <SectionHeader
-          number="02"
-          title="ABOUT"
-          subtitle="whoami"
-        />
+        <SectionHeader number="03" title="ABOUT" subtitle="whoami" />
 
         <motion.div
           initial={{ opacity: 0 }}
@@ -29,21 +25,44 @@ export default function About() {
           className="panel p-6 md:p-8"
         >
           <div className="flex items-start gap-4 mb-6">
-            <div
-              className="w-12 h-12 border border-cyan/45 rounded-xl flex items-center justify-center text-green text-lg font-bold shrink-0"
-            >
+            <div className="w-12 h-12 border border-cyan/45 rounded-xl flex items-center justify-center text-green text-lg font-bold shrink-0">
               W
             </div>
             <div>
-              <h3 className="text-2xl font-semibold glitch-text font-[var(--font-display)]">TreeCityWes</h3>
-              <p className="text-dim text-xs tracking-wider uppercase">builder // validator // hashhead</p>
+              <h3 className="text-2xl font-semibold glitch-text font-[var(--font-display)]">
+                TreeCityWes
+              </h3>
+              <p className="text-dim text-xs tracking-wider uppercase">
+                miner // screener // hashhead
+              </p>
             </div>
           </div>
 
           <div className="space-y-2 mb-7 text-sm text-dim">
-            <p><span className="text-green">&gt;</span> Builder, validator operator, and community leader in the X1 blockchain ecosystem.</p>
-            <p><span className="text-green">&gt;</span> Creator of X1 Ninja, X1 Tools, Forest, and the HashHead community.</p>
-            <p><span className="text-green">&gt;</span> Focused on building open-source tools that make blockchain accessible for everyone.</p>
+            <p>
+              <span className="text-green">&gt;</span> Builder behind HashHead.io —
+              focused on XenBlocks mining and X1 blockchain tooling.
+            </p>
+            <p>
+              <span className="text-green">&gt;</span> Last six months:{" "}
+              <a href="#treeminer" className="text-cyan hover:text-foreground">
+                TreeMiner
+              </a>{" "}
+              (outage-proof GPU miner) and{" "}
+              <a
+                href="https://x1.ninja"
+                className="text-cyan hover:text-foreground"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                x1.ninja
+              </a>{" "}
+              (premier DEX screener for X1).
+            </p>
+            <p>
+              <span className="text-green">&gt;</span> Open-source operator tools for
+              XNM/XUNI mining, XDEX analytics, token launch, and community agents.
+            </p>
           </div>
 
           <div className="border-t border-cyan/20 pt-4 space-y-0">

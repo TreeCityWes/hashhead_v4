@@ -1,6 +1,7 @@
 import AnimatedBackground from "@/components/AnimatedBackground";
 import Header from "@/components/Header";
 import Hero from "@/components/Hero";
+import TreeMiner from "@/components/TreeMiner";
 import X1Showcase from "@/components/X1Showcase";
 import About from "@/components/About";
 import GitHubProjects from "@/components/GitHubProjects";
@@ -15,6 +16,7 @@ export default function Home() {
       <Header />
       <main className="relative z-10">
         <Hero />
+        <TreeMiner />
         <X1Showcase />
         <About />
         <GitHubProjects />

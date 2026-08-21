@@ -2,14 +2,15 @@
 
 import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
-import { ASCII_LOGO, SOCIAL_LINKS } from "@/lib/constants";
-import HashVisualization from "./HashVisualization";
+import { SOCIAL_LINKS, TREEMINER } from "@/lib/constants";
+import TreeMinerDashboard from "./TreeMinerDashboard";
+import TreeMinerTerminal from "./TreeMinerTerminal";
 
 const phrases = [
-  "BUILDING X1 ECOSYSTEM...",
-  "sha256(commitment) => 0x...",
-  "VALIDATOR.BUILDER.HASHHEAD",
-  "DECENTRALIZE EVERYTHING_",
+  "JOURNAL-FIRST XENBLOCKS MINER...",
+  "XNM + XUNI FINDS NEVER DROP_",
+  "CUDA STREAMS // LOCAL OPS :42069",
+  "MINE X1. SCREEN XDEX. HASHHEAD.",
 ];
 
 type Phase = "typing" | "pausing" | "deleting";
@@ -28,21 +29,14 @@ function useTypewriter(
   useEffect(() => {
     const current = items[itemIndex];
     const delay =
-      phase === "typing"
-        ? typingMs
-        : phase === "deleting"
-          ? deleteMs
-          : pauseMs;
+      phase === "typing" ? typingMs : phase === "deleting" ? deleteMs : pauseMs;
 
     const timer = setTimeout(() => {
       if (phase === "typing") {
         const nextPos = Math.min(charPos + 1, current.length);
         setCharPos(nextPos);
         setDisplay(current.slice(0, nextPos));
-
-        if (nextPos >= current.length) {
-          setPhase("pausing");
-        }
+        if (nextPos >= current.length) setPhase("pausing");
         return;
       }
 
@@ -69,69 +63,98 @@ function useTypewriter(
 
 export default function Hero() {
   const typedText = useTypewriter(phrases);
+  const [view, setView] = useState<"web" | "terminal">("web");
 
   return (
-    <section className="relative min-h-screen flex items-center justify-center px-6 pt-24 md:pt-20">
+    <section className="relative min-h-screen flex items-center justify-center px-6 pt-28 pb-16 md:pt-24">
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 0.25 }}
-        className="relative z-10 text-center max-w-5xl"
+        className="relative z-10 w-full max-w-6xl"
       >
-        <div className="inline-flex items-center gap-2 badge mb-6">
-          <span className="status-online" />
-          X1 validator suite
-        </div>
+        <div className="text-center mb-10">
+          <div className="inline-flex items-center gap-2 badge mb-6">
+            <span className="status-online" />
+            XenBlocks GPU miner for X1
+          </div>
 
-        {/* ASCII art on desktop */}
-        <pre className="hidden lg:block text-cyan/70 text-[10px] leading-tight mb-6 whitespace-pre select-none">
-          {ASCII_LOGO}
-        </pre>
+          <h1 className="text-4xl sm:text-5xl md:text-6xl font-semibold tracking-tight mb-4 font-[var(--font-display)]">
+            <span className="glitch-text">TreeMiner</span>
+          </h1>
 
-        {/* Simplified on tablet/mobile */}
-        <h1 className="lg:hidden text-4xl md:text-5xl font-semibold mb-6 glitch-text font-[var(--font-display)]">
-          HASHHEAD
-        </h1>
+          <h2 className="text-lg sm:text-xl md:text-2xl text-foreground/90 font-[var(--font-display)] mb-4">
+            Outage-proof mining for XenBlocks on the X1 blockchain
+          </h2>
 
-        <h2 className="text-3xl sm:text-4xl md:text-5xl font-semibold tracking-tight mb-4 font-[var(--font-display)]">
-          Infrastructure for the
-          <span className="glitch-text">&nbsp;X1 ecosystem</span>
-        </h2>
+          <div className="h-8 md:h-10 mb-5 flex items-center justify-center">
+            <p className="text-xs md:text-sm text-cyan/80 whitespace-nowrap uppercase tracking-[0.16em]">
+              {typedText}
+              <span className="inline-block w-[2px] h-[1.1em] bg-cyan ml-0.5 align-middle animate-[blink_1s_step-end_infinite]" />
+            </p>
+          </div>
 
-        <div className="h-8 md:h-10 mb-5 flex items-center justify-center">
-          <p className="text-xs md:text-sm text-cyan/80 whitespace-nowrap uppercase tracking-[0.16em]">
-            {typedText}
-            <span className="inline-block w-[2px] h-[1.1em] bg-cyan ml-0.5 align-middle animate-[blink_1s_step-end_infinite]" />
+          <p className="text-dim text-sm md:text-base max-w-3xl mx-auto mb-8 leading-relaxed">
+            HashHead ships {TREEMINER.name} for XenBlocks GPU mining and{" "}
+            <a
+              href="https://x1.ninja"
+              className="text-cyan hover:text-foreground"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              x1.ninja
+            </a>
+            , the premier DEX screener for X1. Journal every XNM and XUNI find
+            locally, keep hashing through server outages, then screen XDEX from
+            the same desk.
           </p>
+
+          <div className="flex flex-col sm:flex-row gap-3 justify-center mb-10">
+            <a
+              href={TREEMINER.repo}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="button-primary"
+            >
+              Open TreeMiner on GitHub
+            </a>
+            <a href="#treeminer" className="button-secondary">
+              Build &amp; run
+            </a>
+            <a
+              href={SOCIAL_LINKS.telegram}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="button-secondary"
+            >
+              Join Telegram
+            </a>
+          </div>
         </div>
 
-        <p className="text-dim text-sm md:text-base max-w-2xl mx-auto mb-9 leading-relaxed">
-          HashHead is the build lab for TreeCityWes. I ship validator tooling, operate infrastructure,
-          and create community-first products that make X1 easier to use.
-        </p>
-
-        <div className="flex flex-col sm:flex-row gap-3 justify-center mb-8">
-          <a
-            href="https://x1.ninja"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="button-primary"
-          >
-            Launch X1 Ninja
-          </a>
-          <a
-            href={SOCIAL_LINKS.telegram}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="button-secondary"
-          >
-            Join Telegram
-          </a>
+        <div className="flex items-center justify-center gap-1 mb-4">
+          {(
+            [
+              ["web", "Web console"],
+              ["terminal", "Terminal HUD"],
+            ] as const
+          ).map(([id, label]) => (
+            <button
+              key={id}
+              type="button"
+              onClick={() => setView(id)}
+              className={`px-4 py-1.5 text-[11px] uppercase tracking-wider rounded-full border ${
+                view === id
+                  ? "bg-cyan text-[#041019] border-cyan"
+                  : "border-cyan/25 text-dim hover:text-cyan"
+              }`}
+            >
+              {label}
+            </button>
+          ))}
         </div>
 
-        <div className="panel px-4 py-4 md:px-6 md:py-5 max-w-3xl mx-auto">
-          <HashVisualization />
-        </div>
+        {view === "web" ? <TreeMinerDashboard /> : <TreeMinerTerminal />}
       </motion.div>
     </section>
   );

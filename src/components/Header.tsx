@@ -16,9 +16,7 @@ export default function Header() {
   return (
     <header
       className={`fixed top-0 left-0 right-0 z-40 transition-all duration-200 ${
-        scrolled
-          ? "pt-2 md:pt-3"
-          : "pt-4 md:pt-5"
+        scrolled ? "pt-2 md:pt-3" : "pt-4 md:pt-5"
       }`}
     >
       <div
@@ -29,28 +27,21 @@ export default function Header() {
         } backdrop-blur-md rounded-full`}
       >
         <a href="#" className="flex items-center gap-2 group">
-          <span className="badge hidden sm:inline-flex">network live</span>
+          <span className="badge hidden sm:inline-flex">
+            <span className="status-online" />
+            mining + xdex
+          </span>
           <span className="text-lg font-semibold tracking-tight glitch-text">
             HASHHEAD
           </span>
         </a>
 
-        {/* Desktop nav */}
         <nav className="hidden md:flex items-center gap-2">
           {NAV_LINKS.map((link) => (
-            <a
-              key={link.name}
-              href={link.url}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="px-3 py-1.5 rounded-full text-[11px] text-dim hover:text-foreground hover:bg-cyan/10 uppercase tracking-wider"
-            >
-              {link.name}
-            </a>
+            <NavAnchor key={link.name} link={link} />
           ))}
         </nav>
 
-        {/* Mobile hamburger */}
         <button
           onClick={() => setMobileOpen(!mobileOpen)}
           className="md:hidden relative w-9 h-9 rounded-full border border-cyan/35 flex flex-col items-center justify-center gap-1.5"
@@ -69,25 +60,47 @@ export default function Header() {
         </button>
       </div>
 
-      {/* Mobile menu */}
       {mobileOpen && (
         <nav className="md:hidden mt-3 mx-4 rounded-2xl border border-cyan/20 bg-[rgba(10,18,28,0.92)] backdrop-blur-md">
           <div className="px-6 py-4 flex flex-col gap-2">
             {NAV_LINKS.map((link) => (
-              <a
+              <NavAnchor
                 key={link.name}
-                href={link.url}
-                target="_blank"
-                rel="noopener noreferrer"
+                link={link}
                 className="text-sm text-dim hover:text-foreground uppercase tracking-wider py-2 border-b border-cyan/10 last:border-b-0"
                 onClick={() => setMobileOpen(false)}
-              >
-                <span className="text-green mr-2">&gt;</span> {link.name}
-              </a>
+                prefix
+              />
             ))}
           </div>
         </nav>
       )}
     </header>
+  );
+}
+
+function NavAnchor({
+  link,
+  className = "px-3 py-1.5 rounded-full text-[11px] text-dim hover:text-foreground hover:bg-cyan/10 uppercase tracking-wider",
+  onClick,
+  prefix = false,
+}: {
+  link: { name: string; url: string };
+  className?: string;
+  onClick?: () => void;
+  prefix?: boolean;
+}) {
+  const external = link.url.startsWith("http");
+  return (
+    <a
+      href={link.url}
+      target={external ? "_blank" : undefined}
+      rel={external ? "noopener noreferrer" : undefined}
+      className={className}
+      onClick={onClick}
+    >
+      {prefix && <span className="text-green mr-2">&gt;</span>}
+      {link.name}
+    </a>
   );
 }
