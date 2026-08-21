@@ -20,9 +20,9 @@ export default function TreeMiner() {
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             viewport={{ once: true, margin: "-50px" }}
-            className="panel p-6 md:p-8"
+            className="panel edge-glow p-6 md:p-8"
           >
-            <p className="badge mb-4">github.com/TreeCityWes/tree_miner</p>
+            <p className="badge mb-4 max-w-full">tree_miner</p>
             <h3 className="text-2xl md:text-3xl font-semibold font-[var(--font-display)] mb-4">
               GPU mining that survives XenBlocks outages
             </h3>
@@ -35,14 +35,14 @@ export default function TreeMiner() {
               on XenBlocks / X1 and need the local dashboard, CUDA stream telemetry, and
               a durable ledger — not a RAM queue.
             </p>
-            <div className="flex flex-col sm:flex-row gap-3">
+            <div className="cta-row cta-row-start">
               <a
                 href={TREEMINER.repo}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="button-primary"
               >
-                Star the GitHub repo
+                GitHub
               </a>
               <a
                 href={`${TREEMINER.repo}#building-linux--wsl2`}
@@ -50,7 +50,7 @@ export default function TreeMiner() {
                 rel="noopener noreferrer"
                 className="button-secondary"
               >
-                Full README
+                README
               </a>
             </div>
           </motion.div>
@@ -59,7 +59,7 @@ export default function TreeMiner() {
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             viewport={{ once: true, margin: "-50px" }}
-            className="panel p-6 md:p-8"
+            className="panel edge-glow p-6 md:p-8"
           >
             <p className="text-[11px] uppercase tracking-[0.16em] text-dim mb-4">
               Linux / WSL2 build
@@ -97,7 +97,7 @@ export default function TreeMiner() {
               whileInView={{ opacity: 1 }}
               viewport={{ once: true, margin: "-50px" }}
               transition={{ duration: 0.15, delay: i * 0.03 }}
-              className="panel p-6"
+              className="panel edge-glow p-6"
             >
               <span className="badge mb-3">[{feature.tag}]</span>
               <h3 className="text-lg font-semibold font-[var(--font-display)] mb-2">

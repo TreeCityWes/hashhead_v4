@@ -76,7 +76,8 @@ export default function Hero() {
         <div className="text-center mb-10">
           <div className="inline-flex items-center gap-2 badge mb-6">
             <span className="status-online" />
-            XenBlocks GPU miner for X1
+            <span className="sm:hidden">XenBlocks miner</span>
+            <span className="hidden sm:inline">XenBlocks GPU miner for X1</span>
           </div>
 
           <h1 className="text-4xl sm:text-5xl md:text-6xl font-semibold tracking-tight mb-4 font-[var(--font-display)]">
@@ -87,8 +88,8 @@ export default function Hero() {
             Outage-proof mining for XenBlocks on the X1 blockchain
           </h2>
 
-          <div className="h-8 md:h-10 mb-5 flex items-center justify-center">
-            <p className="text-xs md:text-sm text-cyan/80 whitespace-nowrap uppercase tracking-[0.16em]">
+          <div className="h-8 md:h-10 mb-5 flex items-center justify-center px-2">
+            <p className="text-[10px] sm:text-xs md:text-sm text-cyan/80 uppercase tracking-[0.12em] sm:tracking-[0.16em] text-center">
               {typedText}
               <span className="inline-block w-[2px] h-[1.1em] bg-cyan ml-0.5 align-middle animate-[blink_1s_step-end_infinite]" />
             </p>
@@ -109,17 +110,17 @@ export default function Hero() {
             the same desk.
           </p>
 
-          <div className="flex flex-col sm:flex-row gap-3 justify-center mb-10">
+          <div className="cta-row mb-10">
             <a
               href={TREEMINER.repo}
               target="_blank"
               rel="noopener noreferrer"
               className="button-primary"
             >
-              Open TreeMiner on GitHub
+              GitHub
             </a>
             <a href="#treeminer" className="button-secondary">
-              Build &amp; run
+              Install
             </a>
             <a
               href={SOCIAL_LINKS.telegram}
@@ -127,31 +128,29 @@ export default function Hero() {
               rel="noopener noreferrer"
               className="button-secondary"
             >
-              Join Telegram
+              Telegram
             </a>
           </div>
         </div>
 
-        <div className="flex items-center justify-center gap-1 mb-4">
-          {(
-            [
-              ["web", "Web console"],
-              ["terminal", "Terminal HUD"],
-            ] as const
-          ).map(([id, label]) => (
-            <button
-              key={id}
-              type="button"
-              onClick={() => setView(id)}
-              className={`px-4 py-1.5 text-[11px] uppercase tracking-wider rounded-full border ${
-                view === id
-                  ? "bg-cyan text-[#041019] border-cyan"
-                  : "border-cyan/25 text-dim hover:text-cyan"
-              }`}
-            >
-              {label}
-            </button>
-          ))}
+        <div className="flex justify-center mb-4">
+          <div className="segmented" role="tablist" aria-label="TreeMiner console view">
+            {(
+              [
+                ["web", "Web"],
+                ["terminal", "Terminal"],
+              ] as const
+            ).map(([id, label]) => (
+              <button
+                key={id}
+                type="button"
+                className={view === id ? "is-active" : undefined}
+                onClick={() => setView(id)}
+              >
+                {label}
+              </button>
+            ))}
+          </div>
         </div>
 
         {view === "web" ? <TreeMinerDashboard /> : <TreeMinerTerminal />}

@@ -34,17 +34,17 @@ export default function XenSearch() {
           className="panel"
         >
           {/* Terminal header */}
-          <div className="flex items-center gap-2 px-4 py-3 border-b border-cyan/20">
+          <div className="flex items-center gap-2 px-4 py-3 border-b border-white/10">
             <span className="text-xs text-cyan font-mono badge">
-              [XENBLOCKS_EXPLORER]
+              [XENBLOCKS]
             </span>
-            <span className="text-xs text-dim font-mono">
+            <span className="text-xs text-dim font-mono hidden sm:inline">
               :: session_0x7f3a
             </span>
           </div>
 
           <form onSubmit={handleSearch} className="p-4">
-            <div className="flex items-center gap-3">
+            <div className="flex items-center gap-2 sm:gap-3">
               <span className="text-green text-sm shrink-0">
                 $
               </span>
@@ -52,13 +52,10 @@ export default function XenSearch() {
                 type="text"
                 value={query}
                 onChange={(e) => setQuery(e.target.value)}
-                placeholder="Enter ETH address or ENS name..."
-                className="flex-1 bg-transparent text-foreground text-sm outline-none placeholder:text-dim/50 font-mono"
+                placeholder="ETH address or ENS..."
+                className="flex-1 min-w-0 bg-transparent text-foreground text-sm outline-none placeholder:text-dim/50 font-mono"
               />
-              <button
-                type="submit"
-                className="px-4 py-1.5 rounded-full border border-cyan text-cyan text-xs font-mono uppercase tracking-wider hover:bg-cyan hover:text-[#041019]"
-              >
+              <button type="submit" className="button-secondary">
                 EXEC
               </button>
             </div>

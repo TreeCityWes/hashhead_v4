@@ -20,13 +20,11 @@ export default function Header() {
       }`}
     >
       <div
-        className={`max-w-7xl mx-auto px-4 md:px-6 py-3 flex items-center justify-between border ${
-          scrolled
-            ? "border-cyan/35 bg-[rgba(10,18,28,0.9)] shadow-[0_14px_30px_rgba(0,0,0,0.35)]"
-            : "border-cyan/20 bg-[rgba(10,18,28,0.65)]"
-        } backdrop-blur-md rounded-full`}
+        className={`glass-nav max-w-7xl mx-auto px-3 sm:px-4 md:px-6 py-2.5 sm:py-3 flex items-center justify-between gap-2 rounded-full ${
+          scrolled ? "shadow-[0_14px_30px_rgba(0,0,0,0.35)]" : ""
+        }`}
       >
-        <a href="#" className="flex items-center gap-2 group">
+        <a href="#" className="flex items-center gap-2 min-w-0">
           <span className="badge hidden sm:inline-flex">
             <span className="status-online" />
             mining + xdex
@@ -36,7 +34,7 @@ export default function Header() {
           </span>
         </a>
 
-        <nav className="hidden md:flex items-center gap-2">
+        <nav className="hidden lg:flex items-center gap-1">
           {NAV_LINKS.map((link) => (
             <NavAnchor key={link.name} link={link} />
           ))}
@@ -44,7 +42,7 @@ export default function Header() {
 
         <button
           onClick={() => setMobileOpen(!mobileOpen)}
-          className="md:hidden relative w-9 h-9 rounded-full border border-cyan/35 flex flex-col items-center justify-center gap-1.5"
+          className="lg:hidden relative w-9 h-9 rounded-full border border-white/15 bg-white/5 flex flex-col items-center justify-center gap-1.5 shrink-0"
           aria-label="Toggle menu"
         >
           <span
@@ -61,7 +59,7 @@ export default function Header() {
       </div>
 
       {mobileOpen && (
-        <nav className="md:hidden mt-3 mx-4 rounded-2xl border border-cyan/20 bg-[rgba(10,18,28,0.92)] backdrop-blur-md">
+        <nav className="lg:hidden mt-3 mx-3 sm:mx-4 rounded-2xl glass-nav">
           <div className="px-6 py-4 flex flex-col gap-2">
             {NAV_LINKS.map((link) => (
               <NavAnchor
@@ -81,7 +79,7 @@ export default function Header() {
 
 function NavAnchor({
   link,
-  className = "px-3 py-1.5 rounded-full text-[11px] text-dim hover:text-foreground hover:bg-cyan/10 uppercase tracking-wider",
+  className = "px-3 py-1.5 rounded-full text-[11px] text-dim hover:text-foreground hover:bg-white/10 uppercase tracking-wider whitespace-nowrap",
   onClick,
   prefix = false,
 }: {

@@ -26,16 +26,13 @@ export default function Links() {
           subtitle="Miner, X1 screener, and community"
         />
 
-        <div className="flex gap-1 mb-8 border border-cyan/20 p-1 rounded-full max-w-sm bg-[rgba(10,18,29,0.55)]">
+        <div className="segmented mb-8 w-full max-w-sm">
           {categories.map((cat) => (
             <button
               key={cat.key}
+              type="button"
+              className={activeCategory === cat.key ? "is-active" : undefined}
               onClick={() => setActiveCategory(cat.key)}
-              className={`flex-1 px-4 py-2 text-xs uppercase tracking-wider font-mono rounded-full ${
-                activeCategory === cat.key
-                  ? "bg-cyan text-[#041019]"
-                  : "text-dim hover:text-cyan bg-transparent"
-              }`}
             >
               {cat.label}
             </button>
