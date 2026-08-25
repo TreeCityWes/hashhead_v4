@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import Link from "next/link";
 import { NAV_LINKS } from "@/lib/constants";
 
 export default function Header() {
@@ -24,7 +25,7 @@ export default function Header() {
           scrolled ? "shadow-[0_14px_30px_rgba(0,0,0,0.35)]" : ""
         }`}
       >
-        <a href="#" className="flex items-center gap-2 min-w-0">
+        <Link href="/" className="flex items-center gap-2 min-w-0">
           <span className="badge hidden sm:inline-flex">
             <span className="status-online" />
             mining + xdex
@@ -32,7 +33,7 @@ export default function Header() {
           <span className="text-lg font-semibold tracking-tight glitch-text">
             HASHHEAD
           </span>
-        </a>
+        </Link>
 
         <nav className="hidden lg:flex items-center gap-1">
           {NAV_LINKS.map((link) => (
@@ -89,12 +90,21 @@ function NavAnchor({
   prefix?: boolean;
 }) {
   const external = link.url.startsWith("http");
+  const classNames = className;
+  if (!external) {
+    return (
+      <Link href={link.url} className={classNames} onClick={onClick}>
+        {prefix && <span className="text-green mr-2">&gt;</span>}
+        {link.name}
+      </Link>
+    );
+  }
   return (
     <a
       href={link.url}
-      target={external ? "_blank" : undefined}
-      rel={external ? "noopener noreferrer" : undefined}
-      className={className}
+      target="_blank"
+      rel="noopener noreferrer"
+      className={classNames}
       onClick={onClick}
     >
       {prefix && <span className="text-green mr-2">&gt;</span>}

@@ -1,9 +1,10 @@
 import { SOCIAL_LINKS, TREEMINER } from "@/lib/constants";
+import Link from "next/link";
 
 const footerLinks = [
-  { name: "TREEMINER", url: TREEMINER.repo },
+  { name: "TREEMINER", url: "/miner" },
   { name: "X1 NINJA", url: "https://x1.ninja" },
-  { name: "GITHUB", url: SOCIAL_LINKS.github },
+  { name: "GITHUB", url: TREEMINER.repo },
   { name: "TWITTER", url: SOCIAL_LINKS.twitter },
   { name: "TELEGRAM", url: SOCIAL_LINKS.telegram },
   { name: "YOUTUBE", url: SOCIAL_LINKS.youtube },
@@ -14,28 +15,40 @@ export default function Footer() {
     <footer className="relative border-t border-cyan/15 py-10 px-6">
       <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4">
         <div className="flex items-center gap-3">
-          <span className="text-cyan font-semibold text-sm font-[var(--font-display)]">
+          <Link href="/" className="text-cyan font-semibold text-sm font-[var(--font-display)]">
             HASHHEAD
-          </span>
+          </Link>
           <span className="text-dim text-[10px] uppercase tracking-wider">
             &copy; {new Date().getFullYear()} TreeCityWes · TreeMiner · x1.ninja
           </span>
         </div>
 
         <div className="flex items-center gap-1 text-[10px] flex-wrap justify-center">
-          {footerLinks.map((link, i) => (
-            <span key={link.name} className="flex items-center">
-              {i > 0 && <span className="text-dim mx-1">·</span>}
-              <a
-                href={link.url}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-dim hover:text-cyan uppercase tracking-wider"
-              >
-                {link.name}
-              </a>
-            </span>
-          ))}
+          {footerLinks.map((link, i) => {
+            const external = link.url.startsWith("http");
+            return (
+              <span key={link.name} className="flex items-center">
+                {i > 0 && <span className="text-dim mx-1">·</span>}
+                {external ? (
+                  <a
+                    href={link.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-dim hover:text-cyan uppercase tracking-wider"
+                  >
+                    {link.name}
+                  </a>
+                ) : (
+                  <Link
+                    href={link.url}
+                    className="text-dim hover:text-cyan uppercase tracking-wider"
+                  >
+                    {link.name}
+                  </Link>
+                )}
+              </span>
+            );
+          })}
         </div>
       </div>
     </footer>

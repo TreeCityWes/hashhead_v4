@@ -90,7 +90,8 @@ const jsonLd = {
       name: "TreeMiner",
       applicationCategory: "DeveloperApplication",
       operatingSystem: "Linux, WSL2",
-      url: "https://github.com/TreeCityWes/tree_miner",
+      url: "https://hashhead.io/miner",
+      downloadUrl: "https://github.com/TreeCityWes/tree_miner",
       description:
         "Outage-proof CUDA GPU miner for XenBlocks on the X1 Network. Journals XNM and XUNI finds locally before submission.",
       author: { "@type": "Person", name: "TreeCityWes" },

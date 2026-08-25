@@ -4,6 +4,7 @@ import { useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { CURATED_LINKS } from "@/lib/constants";
 import SectionHeader from "./SectionHeader";
+import Link from "next/link";
 
 const categories = [
   { key: "mining" as const, label: "MINING" },
@@ -48,23 +49,36 @@ export default function Links() {
             transition={{ duration: 0.14 }}
             className="grid grid-cols-1 sm:grid-cols-2 gap-4"
           >
-            {currentLinks.links.map((link) => (
-              <a
-                key={link.name}
-                href={link.url}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="group panel edge-glow p-5 flex flex-col"
-              >
-                <span className="text-base font-semibold text-foreground group-hover:text-cyan mb-1 font-[var(--font-display)]">
-                  {link.name}
-                </span>
-                <span className="text-xs text-dim mb-2">{link.description}</span>
-                <span className="text-[10px] text-cyan/50 font-mono group-hover:text-cyan mt-auto">
-                  {link.url.replace("https://", "")} →
-                </span>
-              </a>
-            ))}
+            {currentLinks.links.map((link) => {
+              const external = link.url.startsWith("http");
+              const className = "group panel edge-glow p-5 flex flex-col";
+              const inner = (
+                <>
+                  <span className="text-base font-semibold text-foreground group-hover:text-cyan mb-1 font-[var(--font-display)]">
+                    {link.name}
+                  </span>
+                  <span className="text-xs text-dim mb-2">{link.description}</span>
+                  <span className="text-[10px] text-cyan/50 font-mono group-hover:text-cyan mt-auto">
+                    {link.url.replace(/^https:\/\//, "")} →
+                  </span>
+                </>
+              );
+              return external ? (
+                <a
+                  key={link.name}
+                  href={link.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={className}
+                >
+                  {inner}
+                </a>
+              ) : (
+                <Link key={link.name} href={link.url} className={className}>
+                  {inner}
+                </Link>
+              );
+            })}
           </motion.div>
         </AnimatePresence>
       </div>

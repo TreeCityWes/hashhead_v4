@@ -45,6 +45,36 @@ export const INSTALL_STEPS = [
   },
 ];
 
+export const OPERATOR_FLAGS = [
+  {
+    flag: "--cudaStreams 1|2",
+    body: "Independent GPU pipelines with a fixed VRAM budget. Two streams is the measured default on modern NVIDIA cards.",
+  },
+  {
+    flag: "--cpuWorkers N",
+    body: "Optional CPU sidecar. Uses the same journal path as GPU finds. Off by default.",
+  },
+  {
+    flag: "--dashboard-bind 0.0.0.0",
+    body: "Expose the local console on your LAN. Default is 127.0.0.1:42069. Put a firewall in front if you bind a wildcard.",
+  },
+];
+
+export const MINING_FAQ = [
+  {
+    q: "What does TreeMiner mine?",
+    a: "XenBlocks on the X1 Network — Xenium (XNM / XEN11) and XUNI finds. Hashing is CUDA Argon2id. Confirmed finds are the ones TreeMiner re-checks with GET /get_block.",
+  },
+  {
+    q: "Why journal first?",
+    a: "The XenBlocks central server drops several times a day. Other miners keep finds in RAM and lose them after a few failed retries. TreeMiner fsyncs every find to SQLite before the first network attempt, then drains the queue when the uplink returns.",
+  },
+  {
+    q: "Where is the dashboard?",
+    a: "http://127.0.0.1:42069 — a self-contained web console plus a terminal HUD. Both stay live while the mining server is down so you can still see hashrate, GPU telemetry, and secured XNM/XUNI queues.",
+  },
+];
+
 export const TREEMINER_FEATURES = [
   {
     tag: "JOURNAL",
@@ -122,6 +152,11 @@ export const CURATED_LINKS = {
     title: "Mining",
     links: [
       {
+        name: "TreeMiner install",
+        url: "/miner",
+        description: "Build, run, and operator notes",
+      },
+      {
         name: "TreeMiner GitHub",
         url: "https://github.com/TreeCityWes/tree_miner",
         description: "Outage-proof XenBlocks GPU miner",
@@ -164,7 +199,7 @@ export const CURATED_LINKS = {
 };
 
 export const NAV_LINKS = [
-  { name: "TREEMINER", url: "#treeminer" },
+  { name: "TREEMINER", url: "/miner" },
   { name: "X1 NINJA", url: "https://x1.ninja" },
   { name: "GITHUB", url: "https://github.com/TreeCityWes/tree_miner" },
   { name: "TWITTER", url: "https://x.com/treecitywes" },

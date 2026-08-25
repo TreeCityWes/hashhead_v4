@@ -5,6 +5,7 @@ import { motion } from "framer-motion";
 import { SOCIAL_LINKS, TREEMINER } from "@/lib/constants";
 import TreeMinerDashboard from "./TreeMinerDashboard";
 import TreeMinerTerminal from "./TreeMinerTerminal";
+import Link from "next/link";
 
 const phrases = [
   "JOURNAL-FIRST XENBLOCKS MINER...",
@@ -119,9 +120,9 @@ export default function Hero() {
             >
               GitHub
             </a>
-            <a href="#treeminer" className="button-secondary">
+            <Link href="/miner" className="button-secondary">
               Install
-            </a>
+            </Link>
             <a
               href={SOCIAL_LINKS.telegram}
               target="_blank"
